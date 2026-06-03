@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Progress Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Weight Progress Tracker</h1>
+
+        <nav>
+            <a href="index.html">⬅️ Back to Calorie/Goal</a>
+        </nav>
+        
+        <hr>
+
+        <section id="weight-tracker-section">
+            <h2>⚖️ Log Progress</h2>
+            <form id="weight-log-form">
+                <label for="log-weight">Log Current **Weight** (kg):</label>
+                <input type="number" id="log-weight" min="30" step="0.1" required>
+
+                <button type="button" id="toggle-measurements-btn">
+                    ➕ Add Measurements
+                </button>
+                
+                <div id="measurement-fields" style="display: none; border-top: 1px dashed #ccc; padding-top: 10px;">
+                    <h3>Body Measurements (cm)</h3>
+                    <label for="log-bust">Bust (cm):</label>
+                    <input type="number" id="log-bust" min="1" step="0.1">
+
+                    <label for="log-waist">Waist (cm):</label>
+                    <input type="number" id="log-waist" min="1" step="0.1">
+
+                    <label for="log-hips">Hips (cm):</label>
+                    <input type="number" id="log-hips" min="1" step="0.1">
+                </div>
+
+                <hr>
+
+                <label for="log-photo-note">Photo Note / URL (e.g., 'Day 1 photo taken' or image URL):</label>
+                <input type="text" id="log-photo-note" placeholder="Optional visual log">
+
+                <button type="submit">Log Progress</button>
+            </form>
+
+            <div id="progress-output" class="result">
+                <h4>Weight Progress Chart:</h4>
+                <canvas id="weightLineChart"></canvas>
+
+                <hr>
+
+                <h4>Progress History:</h4>
+                <ul id="weight-history">
+                    </ul>
+            </div>
+            
+            <hr>
+            
+            <section id="photo-wall-section">
+                <h2>🖼️ Comparison Photo Wall</h2>
+                <div id="photo-wall">
+                    <p id="no-photo-message">No photo notes logged yet.</p>
+                    </div>
+            </section>
+        </section>
+
+    </div>
+
+    <script src="progress.js"></script>
+</body>
+</html>
